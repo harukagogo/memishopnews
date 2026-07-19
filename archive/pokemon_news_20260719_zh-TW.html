@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寶可夢新聞彙整（世界版）｜2026年7月19日</title>
+<style>
+  :root{
+    --bg:#0f1226; --card:#171a35; --card2:#1d2140; --ink:#eef0ff; --sub:#a6abd6;
+    --line:#2a2f55; --accent:#ffcb05; --accent2:#3d7dca; --red:#e84a5f; --green:#4bc97a;
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+    background:linear-gradient(160deg,#0f1226 0%,#14183a 100%);
+    color:var(--ink);line-height:1.75;padding:24px 16px 60px;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto}
+  header.hero{
+    background:linear-gradient(135deg,#3d7dca 0%,#2a3a8f 100%);
+    border-radius:20px;padding:30px 28px;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  header.hero::after{
+    content:"";position:absolute;right:-40px;top:-40px;width:200px;height:200px;
+    background:radial-gradient(circle,rgba(255,203,5,.35),transparent 70%);
+  }
+  .ball{display:inline-block;width:26px;height:26px;border-radius:50%;
+    background:linear-gradient(#e84a5f 0 50%,#fff 50% 100%);border:2.5px solid #14183a;
+    position:relative;vertical-align:middle;margin-right:10px}
+  .ball::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;
+    background:#fff;border:2.5px solid #14183a;border-radius:50%;transform:translate(-50%,-50%)}
+  header.hero h1{font-size:1.5rem;letter-spacing:.02em;display:flex;align-items:center}
+  header.hero .date{color:#dfe6ff;font-size:.95rem;margin-top:6px;opacity:.9}
+  header.hero .lead{color:#eef2ff;font-size:.9rem;margin-top:14px;max-width:640px}
+  .summary{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 4px}
+  .chip{background:var(--card2);border:1px solid var(--line);border-radius:999px;
+    padding:7px 15px;font-size:.82rem;color:var(--sub)}
+  .chip b{color:var(--accent);font-size:1rem}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .toc a{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+    color:#eef2ff;text-decoration:none;padding:6px 13px;border-radius:8px;font-size:.85rem}
+  .toc a:hover{background:rgba(255,203,5,.2)}
+  section.country{margin-top:32px}
+  .country-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;
+    padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,var(--card2),transparent)}
+  .country-head .flag{font-size:1.9rem;line-height:1}
+  .country-head h2{font-size:1.25rem}
+  .country-head .sub{font-size:.78rem;color:var(--sub);margin-top:2px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:17px 20px;margin-bottom:13px;box-shadow:0 3px 14px rgba(0,0,0,.18);
+    transition:transform .15s ease,border-color .15s ease;
+  }
+  .card:hover{transform:translateY(-2px);border-color:var(--accent2)}
+  .cat-label{font-size:.72rem;font-weight:700;letter-spacing:.04em;
+    color:var(--sub);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+  .card h3{font-size:1rem;margin-bottom:6px;line-height:1.55}
+  .card h3 a{color:var(--ink);text-decoration:none}
+  .card h3 a:hover{color:var(--accent)}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:9px}
+  .badge{font-size:.68rem;padding:3px 9px;border-radius:6px;font-weight:700;letter-spacing:.02em}
+  .b-new{background:rgba(232,74,95,.18);color:#ff8a9b;border:1px solid rgba(232,74,95,.4)}
+  .b-date{background:rgba(75,201,122,.16);color:#7ee6a4;border:1px solid rgba(75,201,122,.35)}
+  .b-info{background:rgba(61,125,202,.18);color:#8fb8ee;border:1px solid rgba(61,125,202,.4)}
+  .card p{color:var(--sub);font-size:.89rem}
+  .card .src{display:inline-block;margin-top:9px;font-size:.77rem;color:var(--accent2);text-decoration:none}
+  .card .src:hover{text-decoration:underline}
+  .note{background:var(--card2);border-left:3px solid var(--accent);border-radius:8px;
+    padding:11px 15px;font-size:.83rem;color:var(--sub);margin:4px 0 6px}
+  footer{margin-top:38px;text-align:center;color:var(--sub);font-size:.8rem;
+    border-top:1px solid var(--line);padding-top:20px}
+  footer .schedule{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;margin-bottom:16px;color:var(--ink);font-size:.86rem}
+  a{color:var(--accent2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1><span class="ball"></span>寶可夢新聞彙整（世界版）</h1>
+    <div class="date">2026年7月19日（六）｜ 依國家・地區分類 ／ 卡牌・動畫・周邊・聯名</div>
+    <p class="lead">將世界各國的寶可夢相關新聞，依國家與地區整理彙整。2026年正逢寶可夢30週年，各地相關企劃也一併關注。每則新聞可從「▶ 閱讀詳情」前往官方或原始報導。</p>
+    <div class="summary">
+      <span class="chip">🌍 <b>3</b> 個地區</span>
+      <span class="chip"><b>8</b> 則新聞</span>
+      <span class="chip">🎉 寶可夢<b>30</b>週年</span>
+    </div>
+    <div class="toc">
+      <a href="#jp">🇯🇵 日本</a>
+      <a href="#us">🇺🇸 美國・北美</a>
+      <a href="#global">🌐 全球</a>
+    </div>
+  </header>
+
+  <!-- ===== 日本 ===== -->
+  <section class="country" id="jp">
+    <div class="country-head">
+      <div class="flag">🇯🇵</div>
+      <div><h2>日本</h2><div class="sub">Japan ／ 以日本先行的新彈與聯名為主</div></div>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">🃏 集換式卡牌（TCG）</div>
+      <h3><a href="https://www.pokemon-card.com/ex/m6/" target="_blank">寶可夢卡牌 MEGA 擴充包「風暴綠寶石」7月31日發售＋Pokémon TCG Pocket「天空的支配者」7月30日</a></h3>
+      <div class="meta">
+        <span class="badge b-new">最新</span>
+        <span class="badge b-date">7/30〜31</span>
+        <span class="badge b-info">200日圓 / 5張</span>
+      </div>
+      <p>超級進化系列的最新彈，主打<b>超級烈空坐</b>。實體卡（寶可夢卡牌）與數位版（TCG Pocket）幾乎同步推出，並同步開設「翱翔天際 超級烈空坐」活動特設網站。</p>
+      <a class="src" href="https://www.4gamer.net/games/256/G025620/20260618078/" target="_blank">▶ 閱讀詳情（4Gamer）</a>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">🛍️ 周邊・聯名</div>
+      <h3><a href="https://www.4gamer.net/games/991/G999106/20260710023/" target="_blank">寶可夢中心 × Sean Wotherspoon 聯名絨毛玩偶 ― 7月23日開始接單</a></h3>
+      <div class="meta">
+        <span class="badge b-new">最新</span>
+        <span class="badge b-date">7/23 開始接單</span>
+      </div>
+      <p>與設計師 Sean Wotherspoon 聯名的絨毛玩偶登場，自7月23日起於寶可夢中心線上商店開始接單販售。</p>
+      <a class="src" href="https://www.4gamer.net/games/991/G999106/20260710023/" target="_blank">▶ 閱讀詳情（4Gamer）</a>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">🛍️ 周邊・聯名</div>
+      <h3><a href="https://travel.watch.impress.co.jp/docs/news/2117657.html" target="_blank">全日本高速公路服務區 寶可夢聯名 ― 集章活動＆30週年周邊（〜9/30）</a></h3>
+      <div class="meta">
+        <span class="badge b-date">7/1〜9/30</span>
+        <span class="badge b-info">全國234處</span>
+      </div>
+      <p>與 NEXCO 各公司合作，在全國234處服務區／停車區舉辦集章活動，傳說與幻之寶可夢也會登場。集滿可抽30週年貼紙簿、金牌等；同時販售壓克力立牌（1,850日圓）等限定周邊。</p>
+      <a class="src" href="https://travel.watch.impress.co.jp/docs/news/2117657.html" target="_blank">▶ 閱讀詳情（Travel Watch）</a>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">📺 動畫</div>
+      <h3><a href="https://www.tv-tokyo.co.jp/anime/pocketmonster/" target="_blank">動畫「寶可夢」 ― 莉可與洛伊的故事邁向高潮</a></h3>
+      <div class="meta"><span class="badge b-info">播出中</span></div>
+      <p>於東京電視台系列播出中。公開的視覺圖中，泰樂巴戈斯、六英雄寶可夢與白色基格爾德等眾多夥伴齊聚，預告最終決戰即將到來。最新集數請見官方網站。</p>
+      <a class="src" href="https://www.tv-tokyo.co.jp/anime/pocketmonster/news/" target="_blank">▶ 最新資訊（東京電視台動畫官方）</a>
+    </div>
+  </section>
+
+  <!-- ===== 美國・北美 ===== -->
+  <section class="country" id="us">
+    <div class="country-head">
+      <div class="flag">🇺🇸</div>
+      <div><h2>美國・北美</h2><div class="sub">United States / North America ／ 英文版卡牌與世界大賽</div></div>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">🃏 集換式卡牌（TCG）</div>
+      <h3><a href="https://www.dexerto.com/pokemon/pokemon-tcg-release-2629243/" target="_blank">英文版擴充包「Mega Evolution: Pitch Black」7月17日發售</a></h3>
+      <div class="meta">
+        <span class="badge b-new">最新</span>
+        <span class="badge b-date">7/17 發售</span>
+        <span class="badge b-info">超過115張</span>
+      </div>
+      <p>超級進化時代的第5彈（英文版），收錄<b>超級達克萊伊 ex、超級捷拉奧拉 ex、超級水晶燈火靈 ex、超級龍頭地鼠 ex</b>等6種超級進化 ex。以《寶可夢傳說 Z-A：Mega Dimension》為靈感，下一彈為9月16日的「30th Celebration」。</p>
+      <a class="src" href="https://www.dexerto.com/pokemon/pokemon-tcg-release-2629243/" target="_blank">▶ 閱讀詳情（Dexerto）</a>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">🏆 競技・賽事</div>
+      <h3><a href="https://press.pokemon.com/en/Pokemon-North-America-International-Championships-Move-to-Chicago-in-2" target="_blank">2026寶可夢世界錦標賽，8月28〜30日於舊金山舉行</a></h3>
+      <div class="meta">
+        <span class="badge b-date">8/28〜30</span>
+        <span class="badge b-info">Moscone Center</span>
+      </div>
+      <p>2026 寶可夢世界錦標賽（WCS）將於<b>美國舊金山 Moscone Center</b>舉行。同時官方也宣布北美國際錦標賽（NAIC）將於2027年移師芝加哥。</p>
+      <a class="src" href="https://bulbapedia.bulbagarden.net/wiki/2026_Pok%C3%A9mon_World_Championships" target="_blank">▶ 閱讀詳情（Bulbapedia）</a>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">🛍️ 周邊・聯名</div>
+      <h3><a href="https://www.pokemon.com/us/news/preview-a-selection-of-pokemon-center-products-arriving-in-2026" target="_blank">北美 Pokémon Center 公開2026年新商品陣容</a></h3>
+      <div class="meta"><span class="badge b-info">30週年企劃</span></div>
+      <p>北美寶可夢中心公開2026年即將登場的部分商品，包含配合世界錦標賽推出的漫畫風格限定周邊等，一系列30週年紀念商品將陸續推出。</p>
+      <a class="src" href="https://www.pokemon.com/us/news/preview-a-selection-of-pokemon-center-products-arriving-in-2026" target="_blank">▶ 閱讀詳情（Pokemon.com）</a>
+    </div>
+  </section>
+
+  <!-- ===== 全球 ===== -->
+  <section class="country" id="global">
+    <div class="country-head">
+      <div class="flag">🌐</div>
+      <div><h2>全球（全世界共通）</h2><div class="sub">Worldwide ／ 手遊與全球同步活動</div></div>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">📱 Pokémon GO</div>
+      <h3><a href="https://pokemongo.com/en/gofest/global" target="_blank">Pokémon GO Fest 2026: Global 7月11〜12日登場 ― 今年全員免費</a></h3>
+      <div class="meta">
+        <span class="badge b-new">已舉行</span>
+        <span class="badge b-date">7/11〜12</span>
+        <span class="badge b-info">免費</span>
+      </div>
+      <p>今年的全球 GO Fest <b>對所有訓練家免費</b>。超級超夢X／Y、捷拉奧拉等登場，作為10週年年度的大型活動。整個7月還有10週年紀念派對與 Ultra Unlock 等活動接連展開。</p>
+      <a class="src" href="https://pokemongohub.net/post/event/july-2026-pokemon-go-events/" target="_blank">▶ 7月活動一覽（GO Hub）</a>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">📱 Pokémon GO</div>
+      <h3><a href="https://pokemongohub.net/post/event/july-2026-pokemon-go-events/" target="_blank">超級雷丘團體戰日（7/18）等7月焦點活動</a></h3>
+      <div class="meta">
+        <span class="badge b-date">7月</span>
+        <span class="badge b-info">團體戰</span>
+      </div>
+      <p>7月18日為<b>超級雷丘X／Y</b>首次登場的團體戰日。此外還有淚眼蛙社群日（7/4）、10週年紀念皮卡丘（7/13〜20）等眾多紀念活動。</p>
+      <a class="src" href="https://pokemongohub.net/post/event/july-2026-pokemon-go-events/" target="_blank">▶ 閱讀詳情（GO Hub）</a>
+    </div>
+
+    <div class="card">
+      <div class="cat-label">🎮 遊戲 × 動畫聯名</div>
+      <h3><a href="https://gamingonphone.com/news/pokemon-unite-x-pokemon-horizons-collab-brings-new-pokemon-exclusive-holowear-and-more-from-june-4-2026" target="_blank">寶可夢大集結 × 動畫「寶可夢 地平線」聯名活動</a></h3>
+      <div class="meta"><span class="badge b-info">進行中</span></div>
+      <p>MOBA 遊戲「寶可夢大集結（Pokémon UNITE）」與海外播出中的動畫「Pokémon Horizons」聯名，推出限定 Holowear（造型）並加入新寶可夢，遊戲與動畫跨界企劃於全球同步展開。</p>
+      <a class="src" href="https://gamingonphone.com/news/pokemon-unite-x-pokemon-horizons-collab-brings-new-pokemon-exclusive-holowear-and-more-from-june-4-2026" target="_blank">▶ 閱讀詳情（GamingOnPhone）</a>
+    </div>
+
+    <div class="note">🇪🇺 歐洲等其他地區，基本上比照英文版（北美）的卡牌發售時程與全球活動。若有地區限定的動態，將另行個別介紹。</div>
+  </section>
+
+  <footer>
+    <div class="schedule">📅 本彙整已設定於<b>每日早上7:00（日本時間）</b>自動送達。<br>對象國家、分類與送達時間皆可隨時調整。</div>
+    資訊整理自各國官方網站與新聞報導，價格與日期可能變動。<br>
+    Pokémon News Digest（World Edition）｜ 2026年7月19日版
+  </footer>
+
+</div>
+</body>
+</html>
