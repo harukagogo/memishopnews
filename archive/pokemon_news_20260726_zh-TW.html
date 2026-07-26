@@ -9,7 +9,7 @@
     --bg:#0f1226; --card:#171a35; --card2:#1d2140; --ink:#eef0ff; --sub:#a6abd6;
     --line:#2a2f55; --accent:#ffcb05; --accent2:#3d7dca;
     --grab:#e84a5f; --order:#4bc97a; --info:#8fb8ee;
-    --pk:#ffcb05; --op:#e0563d; --db:#f0932b; --mag:#8f86e0;
+    --pk:#ffcb05; --op:#e0563d; --db:#f0932b; --yg:#b06fd6; --mag:#8f86e0;
     --shadow:0 8px 30px rgba(0,0,0,.35);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -31,7 +31,20 @@
     border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;gap:6px}
   .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
 
-  .action-box{margin-top:22px;background:var(--card);border:1px solid var(--line);
+  /* filters */
+  .filters{margin-top:18px;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+  .frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .flabel{font-size:.76rem;color:var(--sub);min-width:38px;font-weight:700}
+  .fbtn{font-size:.8rem;padding:6px 13px;border-radius:999px;cursor:pointer;
+    background:var(--card2);border:1px solid var(--line);color:var(--sub);transition:all .12s ease}
+  .fbtn:hover{border-color:var(--accent2);color:var(--ink)}
+  .fbtn.active{background:var(--accent2);border-color:var(--accent2);color:#fff;font-weight:700}
+  .toggle{font-size:.8rem;color:var(--sub);display:flex;align-items:center;gap:7px;cursor:pointer;user-select:none}
+  .toggle input{width:16px;height:16px;accent-color:var(--accent2);cursor:pointer}
+  .fcount{margin-left:auto;font-size:.76rem;color:var(--sub)}
+
+  .action-box{margin-top:16px;background:var(--card);border:1px solid var(--line);
     border-left:4px solid var(--accent);border-radius:14px;padding:16px 18px}
   .action-box h2{font-size:1rem;margin-bottom:10px;color:var(--accent)}
   .action-list{display:flex;flex-direction:column;gap:8px}
@@ -39,7 +52,7 @@
   .action-item .d{color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums;min-width:52px}
   .action-empty{font-size:.85rem;color:var(--sub)}
 
-  .month{margin-top:30px}
+  .month{margin-top:28px}
   .month h2{font-size:1.15rem;padding:8px 14px;border-radius:10px;
     background:linear-gradient(90deg,var(--card2),transparent);border-left:3px solid var(--accent2)}
 
@@ -85,7 +98,7 @@
 
   <header class="hero">
     <h1>🗓️ 動漫卡牌 發售・預訂 行事曆</h1>
-    <div class="date">世界版｜2026年7月26日 更新 ｜ 寶可夢・One Piece・七龍珠・附錄卡雜誌</div>
+    <div class="date">世界版｜2026年7月26日 更新 ｜ 寶可夢・One Piece・七龍珠・遊戲王・附錄卡雜誌</div>
     <p class="lead">整理各作品即將發售與可預訂的商品，依日期排序。<b>日期以日本為主</b>（情報最快最齊），港澳台可作代購/進口參考。每項標明要「搶」還是可「預訂」，並附出處連結。</p>
     <div class="legend">
       <span class="lg"><span class="badge b-grab">搶</span> 先着・抽選（需即時搶購或抽選）</span>
@@ -93,9 +106,33 @@
       <span class="lg"><span class="dot" style="background:var(--pk)"></span>寶可夢</span>
       <span class="lg"><span class="dot" style="background:var(--op)"></span>One Piece</span>
       <span class="lg"><span class="dot" style="background:var(--db)"></span>七龍珠</span>
+      <span class="lg"><span class="dot" style="background:var(--yg)"></span>遊戲王</span>
       <span class="lg"><span class="dot" style="background:var(--mag)"></span>雜誌/其他</span>
     </div>
   </header>
+
+  <!-- 篩選 -->
+  <div class="filters">
+    <div class="frow">
+      <span class="flabel">作品</span>
+      <button class="fbtn active" data-f="franchise" data-v="all">全部</button>
+      <button class="fbtn" data-f="franchise" data-v="pk">寶可夢</button>
+      <button class="fbtn" data-f="franchise" data-v="op">One Piece</button>
+      <button class="fbtn" data-f="franchise" data-v="db">七龍珠</button>
+      <button class="fbtn" data-f="franchise" data-v="yg">遊戲王</button>
+      <button class="fbtn" data-f="franchise" data-v="mag">雜誌/其他</button>
+    </div>
+    <div class="frow">
+      <span class="flabel">類型</span>
+      <button class="fbtn active" data-f="type" data-v="all">全部</button>
+      <button class="fbtn" data-f="type" data-v="grab">🔴 搶</button>
+      <button class="fbtn" data-f="type" data-v="order">🟢 預訂</button>
+    </div>
+    <div class="frow">
+      <label class="toggle"><input type="checkbox" id="hidePast"> 隱藏已開賣</label>
+      <span class="fcount" id="fcount"></span>
+    </div>
+  </div>
 
   <div class="action-box">
     <h2>⏰ 近期要行動（45天內）</h2>
@@ -106,7 +143,7 @@
   <div class="month">
     <h2>2026年 7月</h2>
 
-    <div class="item" data-date="2026-07-21">
+    <div class="item" data-date="2026-07-21" data-franchise="mag db" data-type="order">
       <div class="datecol"><div class="md">07/21</div><div class="wd">週二</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--mag)"></span>雜誌</span><span class="ftag"><span class="dot" style="background:var(--db)"></span>七龍珠</span><span class="badge b-order">預訂</span></div>
@@ -116,7 +153,7 @@
       </div>
     </div>
 
-    <div class="item" data-date="2026-07-23">
+    <div class="item" data-date="2026-07-23" data-franchise="pk" data-type="order">
       <div class="datecol"><div class="md">07/23</div><div class="wd">週四</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--pk)"></span>寶可夢</span><span class="badge b-order">預訂</span></div>
@@ -126,7 +163,7 @@
       </div>
     </div>
 
-    <div class="item" data-date="2026-07-30">
+    <div class="item" data-date="2026-07-30" data-franchise="pk" data-type="info">
       <div class="datecol"><div class="md">07/30</div><div class="wd">週四</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--pk)"></span>寶可夢</span><span class="badge b-info">數位・免搶</span></div>
@@ -136,7 +173,7 @@
       </div>
     </div>
 
-    <div class="item" data-date="2026-07-31">
+    <div class="item" data-date="2026-07-31" data-franchise="pk" data-type="grab">
       <div class="datecol"><div class="md">07/31</div><div class="wd">週五</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--pk)"></span>寶可夢</span><span class="badge b-grab">搶</span></div>
@@ -146,7 +183,7 @@
       </div>
     </div>
 
-    <div class="item" data-date="2026-07-31">
+    <div class="item" data-date="2026-07-31" data-franchise="pk" data-type="order">
       <div class="datecol"><div class="md">07/31</div><div class="wd">週五</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--pk)"></span>寶可夢</span><span class="badge b-order">預訂</span></div>
@@ -161,7 +198,7 @@
   <div class="month">
     <h2>2026年 8月</h2>
 
-    <div class="item" data-date="2026-08-08">
+    <div class="item" data-date="2026-08-08" data-franchise="db" data-type="order">
       <div class="datecol"><div class="md">08/08</div><div class="wd">週六</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--db)"></span>七龍珠</span><span class="badge b-order">預訂</span></div>
@@ -171,7 +208,17 @@
       </div>
     </div>
 
-    <div class="item" data-date="2026-08-21">
+    <div class="item" data-date="2026-08-08" data-franchise="yg" data-type="order">
+      <div class="datecol"><div class="md">08/08</div><div class="wd">週六</div><div class="cd"></div></div>
+      <div class="body">
+        <div class="tags"><span class="ftag"><span class="dot" style="background:var(--yg)"></span>遊戲王</span><span class="badge b-order">預訂</span></div>
+        <h3><a href="https://www.yugioh-card.com/japan/" target="_blank">遊戲王 OCG「UTILITY SELECTION BOX」</a></h3>
+        <p>遊戲王 OCG 新商品（實用向精選盒）。開放預約。</p>
+        <a class="src" href="https://premium.gamepedia.jp/hobby/calendar/01JBDQVE85DP9M0ZVHKYGRMN19/202608" target="_blank">▶ 發售日曆（キャラホビ）</a>
+      </div>
+    </div>
+
+    <div class="item" data-date="2026-08-21" data-franchise="mag db op" data-type="order">
       <div class="datecol"><div class="md">08/21</div><div class="wd">週五</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--mag)"></span>雜誌</span><span class="ftag"><span class="dot" style="background:var(--db)"></span>七龍珠</span><span class="ftag"><span class="dot" style="background:var(--op)"></span>One Piece</span><span class="badge b-order">預訂</span></div>
@@ -180,13 +227,23 @@
         <a class="src" href="https://vjump.shueisha.co.jp/newinfo/" target="_blank">▶ V-Jump 官方</a>
       </div>
     </div>
+
+    <div class="item" data-date="2026-08-22" data-franchise="yg" data-type="order">
+      <div class="datecol"><div class="md">08/22</div><div class="wd">週六</div><div class="cd"></div></div>
+      <div class="body">
+        <div class="tags"><span class="ftag"><span class="dot" style="background:var(--yg)"></span>遊戲王</span><span class="badge b-order">預訂</span></div>
+        <h3><a href="https://www.yugioh-card.com/japan/" target="_blank">遊戲王 Rush Duel「君臨的頭條 BOX（君臨のヘッドライナー）」</a></h3>
+        <p>Rush Duel（RUSH DUEL）新盒商品。開放預約。</p>
+        <a class="src" href="https://premium.gamepedia.jp/hobby/calendar/01JBDQVE85DP9M0ZVHKYGRMN19/202608" target="_blank">▶ 發售日曆（キャラホビ）</a>
+      </div>
+    </div>
   </div>
 
   <!-- ===== 9月 ===== -->
   <div class="month">
     <h2>2026年 9月</h2>
 
-    <div class="item" data-date="2026-09-12">
+    <div class="item" data-date="2026-09-12" data-franchise="db" data-type="order">
       <div class="datecol"><div class="md">09/12</div><div class="wd">週六</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--db)"></span>七龍珠</span><span class="badge b-order">預訂</span></div>
@@ -196,7 +253,7 @@
       </div>
     </div>
 
-    <div class="item" data-date="2026-09-16">
+    <div class="item" data-date="2026-09-16" data-franchise="pk" data-type="grab">
       <div class="datecol"><div class="md">09/16</div><div class="wd">週三</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--pk)"></span>寶可夢</span><span class="badge b-grab">搶</span></div>
@@ -211,7 +268,7 @@
   <div class="month">
     <h2>2026年 10月</h2>
 
-    <div class="item" data-date="2026-10-16">
+    <div class="item" data-date="2026-10-16" data-franchise="pk" data-type="order">
       <div class="datecol"><div class="md">10/16</div><div class="wd">週五</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--pk)"></span>寶可夢</span><span class="badge b-order">預訂</span></div>
@@ -226,7 +283,7 @@
   <div class="month">
     <h2>2026年 12月</h2>
 
-    <div class="item" data-date="2026-12-12">
+    <div class="item" data-date="2026-12-12" data-franchise="db" data-type="order">
       <div class="datecol"><div class="md">12/12</div><div class="wd">週六</div><div class="cd"></div></div>
       <div class="body">
         <div class="tags"><span class="ftag"><span class="dot" style="background:var(--db)"></span>七龍珠</span><span class="badge b-order">預訂</span></div>
@@ -237,7 +294,7 @@
     </div>
   </div>
 
-  <div class="note">📌 <b>One Piece 卡牌</b>：起始牌組 ST-31〜36（6種）已於 7/11 發售；後續新補充包（OP-13 以後）發售日待官方公布，將於每日更新中補上。<br>📌 <b>週刊少年 Jump</b> 不定期附 One Piece 促銷卡（人氣號店頭常即完售，屬「搶」型，Amazon 等可預約）。</div>
+  <div class="note" id="globalNote">📌 <b>One Piece 卡牌</b>：起始牌組 ST-31〜36（6種）已於 7/11 發售；後續新補充包（OP-13 以後）發售日待官方公布，將於每日更新中補上。<br>📌 <b>週刊少年 Jump</b> 不定期附 One Piece 促銷卡（人氣號店頭常即完售，屬「搶」型，Amazon 等可預約）。</div>
 
   <footer>
     <div class="schedule">📅 本行事曆每日早上 <b>7:00（日本時間）</b>自動更新，並發佈到固定網址。<br>對象作品、地區與形式皆可隨時調整。日期／價格可能變動，請以官方公告為準。</div>
@@ -248,47 +305,78 @@
 
 <script>
 (function(){
-  function todayJST(){
-    // 以使用者當地時間為準計算天數（近似日本時間）
-    var n = new Date();
-    return new Date(n.getFullYear(), n.getMonth(), n.getDate());
-  }
-  var today = todayJST();
   var MS = 86400000;
-  var upcoming = [];
-  document.querySelectorAll('.item').forEach(function(el){
+  var n = new Date();
+  var today = new Date(n.getFullYear(), n.getMonth(), n.getDate());
+  var items = Array.prototype.slice.call(document.querySelectorAll('.item'));
+
+  // 1) 倒數計時 & 已開賣標記
+  items.forEach(function(el){
     var ds = el.getAttribute('data-date'); if(!ds) return;
-    var parts = ds.split('-');
-    var d = new Date(+parts[0], +parts[1]-1, +parts[2]);
+    var p = ds.split('-');
+    var d = new Date(+p[0], +p[1]-1, +p[2]);
     var diff = Math.round((d - today)/MS);
+    el._diff = diff;
     var cd = el.querySelector('.cd');
-    if(diff < 0){
-      el.classList.add('past');
-      if(cd){ cd.textContent = '已開賣'; }
-    } else if(diff === 0){
-      if(cd){ cd.textContent = '就是今天'; cd.classList.add('today'); }
-    } else {
-      if(cd){ cd.textContent = '剩 '+diff+' 天'; if(diff <= 7){ cd.classList.add('soon'); } }
-    }
-    if(diff >= 0 && diff <= 45){
-      var title = el.querySelector('h3') ? el.querySelector('h3').textContent.trim() : '';
-      var badge = el.querySelector('.badge') ? el.querySelector('.badge').textContent.trim() : '';
-      upcoming.push({diff:diff, md:el.querySelector('.md')?el.querySelector('.md').textContent:ds, title:title, badge:badge});
-    }
+    if(diff < 0){ el.classList.add('past'); if(cd) cd.textContent='已開賣'; }
+    else if(diff === 0){ if(cd){ cd.textContent='就是今天'; cd.classList.add('today'); } }
+    else { if(cd){ cd.textContent='剩 '+diff+' 天'; if(diff<=7) cd.classList.add('soon'); } }
   });
-  upcoming.sort(function(a,b){return a.diff-b.diff});
+
+  // 2) 近期要行動
+  var up = items.filter(function(el){return el._diff>=0 && el._diff<=45;})
+    .sort(function(a,b){return a._diff-b._diff;});
   var list = document.getElementById('actionList');
-  if(upcoming.length === 0){
-    list.innerHTML = '<div class="action-empty">45天內暫無需要行動的項目。</div>';
-  } else {
-    upcoming.slice(0,6).forEach(function(u){
-      var row = document.createElement('div');
-      row.className = 'action-item';
-      var tag = u.badge ? ('【'+u.badge+'】') : '';
-      row.innerHTML = '<span class="d">'+u.md+'</span><span>'+tag+' '+u.title+(u.diff===0?'（今天）':'（剩 '+u.diff+' 天）')+'</span>';
+  if(up.length===0){ list.innerHTML='<div class="action-empty">45天內暫無需要行動的項目。</div>'; }
+  else{
+    up.slice(0,6).forEach(function(el){
+      var md = el.querySelector('.md')?el.querySelector('.md').textContent:'';
+      var title = el.querySelector('h3')?el.querySelector('h3').textContent.trim():'';
+      var badge = el.querySelector('.badge')?el.querySelector('.badge').textContent.trim():'';
+      var row=document.createElement('div'); row.className='action-item';
+      row.innerHTML='<span class="d">'+md+'</span><span>【'+badge+'】 '+title+(el._diff===0?'（今天）':'（剩 '+el._diff+' 天）')+'</span>';
       list.appendChild(row);
     });
   }
+
+  // 3) 篩選功能
+  var state = { franchise:'all', type:'all', hidePast:false };
+  var fcount = document.getElementById('fcount');
+
+  function apply(){
+    var visible = 0;
+    items.forEach(function(el){
+      var fr = (el.getAttribute('data-franchise')||'').split(' ');
+      var tp = el.getAttribute('data-type')||'';
+      var ok = true;
+      if(state.franchise!=='all' && fr.indexOf(state.franchise)<0) ok=false;
+      if(state.type!=='all' && tp!==state.type) ok=false;
+      if(state.hidePast && el.classList.contains('past')) ok=false;
+      el.style.display = ok ? '' : 'none';
+      if(ok) visible++;
+    });
+    // 隱藏空月份
+    document.querySelectorAll('.month').forEach(function(m){
+      var any = Array.prototype.slice.call(m.querySelectorAll('.item'))
+        .some(function(el){return el.style.display!=='none';});
+      m.style.display = any ? '' : 'none';
+    });
+    if(fcount) fcount.textContent = '顯示 '+visible+' 項';
+  }
+
+  document.querySelectorAll('.fbtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.getAttribute('data-f'), v = btn.getAttribute('data-v');
+      state[f] = v;
+      document.querySelectorAll('.fbtn[data-f="'+f+'"]').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      apply();
+    });
+  });
+  var hp = document.getElementById('hidePast');
+  if(hp) hp.addEventListener('change', function(){ state.hidePast = hp.checked; apply(); });
+
+  apply();
 })();
 </script>
 </body>
