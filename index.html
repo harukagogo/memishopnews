@@ -23,6 +23,7 @@
   .upd{color:var(--sub);font-size:.85rem;margin-top:6px}
   .notice{background:rgba(74,157,255,.1);border:1px solid var(--line);border-radius:10px;
     padding:10px 14px;margin:14px auto;font-size:.85rem;color:var(--sub);max-width:880px}
+  a{color:var(--blue)}
   /* legend */
   .legend{display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:center;
     font-size:.82rem;color:var(--sub);margin:12px 0 4px}
@@ -34,9 +35,22 @@
   .badge.grab{background:var(--grab);color:#fff}
   .badge.order{background:var(--order);color:#04122e}
   .badge.info{background:var(--info);color:#0a1330}
+  /* channel directory */
+  .chandir{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+  .chandir h2{margin:0 0 4px;font-size:1.05rem;color:var(--yellow)}
+  .chandir .hint{font-size:.8rem;color:var(--sub);margin-bottom:10px}
+  .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:620px){.cgrid{grid-template-columns:1fr}}
+  .cgroup{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+  .cgroup h3{margin:0 0 7px;font-size:.9rem}
+  .cgroup h3 .tag{font-size:.68rem;font-weight:700;padding:1px 6px;border-radius:5px;margin-left:6px;vertical-align:middle}
+  .t-grab{background:var(--grab);color:#fff}.t-order{background:var(--order);color:#04122e}
+  .clist{display:flex;flex-wrap:wrap;gap:6px}
+  .clist a{font-size:.8rem;background:var(--card2);border:1px solid var(--line);
+    border-radius:14px;padding:3px 9px;text-decoration:none;color:var(--ink)}
+  .clist a:hover{border-color:var(--blue);color:var(--yellow)}
   /* filter bar */
-  .filters{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:14px;margin:16px 0}
+  .filters{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:16px 0}
   .frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
   .frow:last-child{margin-bottom:0}
   .flabel{font-size:.78rem;color:var(--sub);width:100%;margin-bottom:2px}
@@ -76,8 +90,13 @@
   .pname a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--sub)}
   .pname a:hover{color:var(--yellow)}
   .meta{font-size:.83rem;color:var(--sub)}
-  .foot{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:16px;margin:24px 0}
+  .channels{margin-top:7px;font-size:.78rem;color:var(--sub);display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+  .channels .lb{color:var(--sub)}
+  .channels a{background:var(--bg2);border:1px solid var(--line);border-radius:12px;
+    padding:2px 8px;text-decoration:none;color:var(--ink)}
+  .channels a:hover{border-color:var(--blue);color:var(--yellow)}
+  .channels a.off{border-color:var(--yellow);color:var(--yellow)}
+  .foot{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:24px 0}
   .foot h2{margin:0 0 8px;font-size:1rem;color:var(--yellow)}
   .foot ul{margin:6px 0;padding-left:20px} .foot li{font-size:.85rem;color:var(--sub);margin:4px 0}
   .disc{text-align:center;font-size:.78rem;color:var(--sub);margin-top:20px}
@@ -90,7 +109,7 @@
 </header>
 <div class="wrap">
 
-  <div class="notice">📌 今日無官方新增重大情報；以下為現有已公布之未來商品，倒數與篩選為即時更新。2026 年為寶可夢 30 週年，相關記念商品陸續登場。</div>
+  <div class="notice">📌 今日官方無新增重大情報；以下為現有已公布之未來商品，倒數與篩選為即時更新。本次新增各項「預訂／搶購通路」連結。2026 年為寶可夢 30 週年。</div>
 
   <div class="legend">
     <span><span class="badge grab">搶</span>先着・抽選／限量，需即時搶購</span>
@@ -100,6 +119,55 @@
     <span><span class="dot db"></span>七龍珠</span>
     <span><span class="dot yg"></span>遊戲王</span>
     <span><span class="dot mag"></span>雜誌其他</span>
+  </div>
+
+  <!-- 通路速查 -->
+  <div class="chandir">
+    <h2>🛒 通路速查（去哪裡預訂／搶購）</h2>
+    <div class="hint">【搶】類優先看「官方抽選」與「大型連鎖店頭」；【預訂】類用「網購預訂」最省事；人在澳門可用「港澳台代購／進口」。每項商品下方另附該商品的直接搜尋連結。</div>
+    <div class="cgrid">
+      <div class="cgroup">
+        <h3>官方・抽選<span class="tag t-grab">搶首選</span></h3>
+        <div class="clist">
+          <a href="https://www.pokemoncenter-online.com/" target="_blank">寶可夢中心線上（30週年抽選）</a>
+          <a href="https://onepiece-cardgame.com/" target="_blank">One Piece 官方</a>
+          <a href="https://dbs-cardgame.com/fw/" target="_blank">七龍珠 Fusion World 官方</a>
+          <a href="https://www.yugioh-card.com/japan/" target="_blank">遊戲王 OCG 官方</a>
+          <a href="https://www.konamistyle.jp/" target="_blank">KONAMI STYLE</a>
+          <a href="https://p-bandai.jp/" target="_blank">Premium Bandai</a>
+        </div>
+      </div>
+      <div class="cgroup">
+        <h3>大型連鎖・店頭<span class="tag t-grab">先着搶</span></h3>
+        <div class="clist">
+          <a href="https://www.cardrush-pokemon.jp/" target="_blank">Card Rush 卡拉時</a>
+          <a href="https://www.suruga-ya.jp/" target="_blank">駿河屋</a>
+          <a href="https://www.amiami.jp/" target="_blank">あみあみ</a>
+          <a href="https://www.yodobashi.com/" target="_blank">Yodobashi</a>
+          <a href="https://www.animate-onlineshop.jp/" target="_blank">Animate</a>
+          <a href="https://shop.tsutaya.co.jp/" target="_blank">TSUTAYA</a>
+        </div>
+      </div>
+      <div class="cgroup">
+        <h3>網購・預訂<span class="tag t-order">預訂省事</span></h3>
+        <div class="clist">
+          <a href="https://www.amazon.co.jp/" target="_blank">Amazon.co.jp</a>
+          <a href="https://books.rakuten.co.jp/" target="_blank">樂天ブックス</a>
+          <a href="https://shopping.yahoo.co.jp/" target="_blank">Yahoo!購物</a>
+          <a href="https://7net.omni7.jp/" target="_blank">7net（雜誌強）</a>
+          <a href="https://www.hobbystock.jp/" target="_blank">Hobby Stock</a>
+        </div>
+      </div>
+      <div class="cgroup">
+        <h3>港澳台・代購／進口<span class="tag t-order">澳門適用</span></h3>
+        <div class="clist">
+          <a href="https://buyee.jp/" target="_blank">Buyee 日本代購</a>
+          <a href="https://asia.pokemon-card.com/" target="_blank">Pokémon 亞洲官方</a>
+          <a href="https://shopee.tw/" target="_blank">蝦皮 蝦皮</a>
+          <a href="https://www.ruten.com.tw/" target="_blank">露天拍賣</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="filters">
@@ -131,7 +199,7 @@
 
     <!-- 7月 -->
     <div class="month" data-month>2026 年 7 月</div>
-    <div class="item" data-franchise="op" data-type="order" data-date="2026-07-11">
+    <div class="item" data-franchise="op" data-type="order" data-date="2026-07-11" data-kw="ワンピースカード スタートデッキ ST-31">
       <div class="date-col"><div class="md">07/11</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot op"></span><span class="fname">One Piece</span><span class="badge order">預訂</span></div>
@@ -139,7 +207,7 @@
         <div class="meta">各 ¥550・六色新起始牌組</div>
       </div>
     </div>
-    <div class="item" data-franchise="mag op" data-type="grab" data-date="2026-07-13">
+    <div class="item" data-franchise="mag op" data-type="grab" data-date="2026-07-13" data-kw="週刊少年ジャンプ 33号 ワンピースカード">
       <div class="date-col"><div class="md">07/13</div><div class="wd">週一</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot mag"></span><span class="dot op"></span><span class="fname">週刊少年Jump 33號</span><span class="badge grab">搶</span></div>
@@ -147,7 +215,7 @@
         <div class="meta">連載29週年記念促銷卡，店頭易完售；電子版定期購讀另有應募者全員服務</div>
       </div>
     </div>
-    <div class="item" data-franchise="mag yg db" data-type="grab" data-date="2026-07-21">
+    <div class="item" data-franchise="mag yg db" data-type="grab" data-date="2026-07-21" data-kw="Vジャンプ 2026年9月号">
       <div class="date-col"><div class="md">07/21</div><div class="wd">週二</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot mag"></span><span class="dot yg"></span><span class="dot db"></span><span class="fname">V-Jump 9月特大號</span><span class="badge grab">搶</span></div>
@@ -155,7 +223,7 @@
         <div class="meta">日期為概略；人氣附錄號店頭易完售</div>
       </div>
     </div>
-    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-07-31">
+    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-07-31" data-kw="ポケモンカード Storm Emerald 拡張パック">
       <div class="date-col"><div class="md">07/31</div><div class="wd">週五</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot pk"></span><span class="fname">寶可夢</span><span class="badge grab">搶</span></div>
@@ -163,7 +231,7 @@
         <div class="meta">¥200/包・¥6,000/盒・人氣擴充包店頭易完售</div>
       </div>
     </div>
-    <div class="item" data-franchise="pk" data-type="order" data-date="2026-07-31">
+    <div class="item" data-franchise="pk" data-type="order" data-date="2026-07-31" data-kw="ポケモンカード スタートデッキex 2026">
       <div class="date-col"><div class="md">07/31</div><div class="wd">週五</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot pk"></span><span class="fname">寶可夢</span><span class="badge order">預訂</span></div>
@@ -174,7 +242,7 @@
 
     <!-- 8月 -->
     <div class="month" data-month>2026 年 8 月</div>
-    <div class="item" data-franchise="yg" data-type="order" data-date="2026-08-08">
+    <div class="item" data-franchise="yg" data-type="order" data-date="2026-08-08" data-kw="遊戯王 UTILITY SELECTION">
       <div class="date-col"><div class="md">08/08</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 OCG</span><span class="badge order">預訂</span></div>
@@ -182,7 +250,7 @@
         <div class="meta">¥396・可預約</div>
       </div>
     </div>
-    <div class="item" data-franchise="db" data-type="order" data-date="2026-08-08">
+    <div class="item" data-franchise="db" data-type="order" data-date="2026-08-08" data-kw="ドラゴンボール フュージョンワールド STORY BOOSTER 01">
       <div class="date-col"><div class="md">08/08</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot db"></span><span class="fname">七龍珠 Fusion World</span><span class="badge order">預訂</span></div>
@@ -190,7 +258,7 @@
         <div class="meta">故事型補充包・可預約</div>
       </div>
     </div>
-    <div class="item" data-franchise="op" data-type="grab" data-date="2026-08-22">
+    <div class="item" data-franchise="op" data-type="grab" data-date="2026-08-22" data-kw="ワンピースカード OP-17 世界最強の戦士">
       <div class="date-col"><div class="md">08/22</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot op"></span><span class="fname">One Piece</span><span class="badge grab">搶</span></div>
@@ -198,7 +266,7 @@
         <div class="meta">¥240/包・4週年記念彈（艾爾巴夫篇）、新魯夫領航卡登場；人氣補充包易完售</div>
       </div>
     </div>
-    <div class="item" data-franchise="yg" data-type="grab" data-date="2026-08-22">
+    <div class="item" data-franchise="yg" data-type="grab" data-date="2026-08-22" data-kw="遊戯王 デラックスデュエルセット 閃刀姫">
       <div class="date-col"><div class="md">08/22</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 OCG</span><span class="badge grab">搶</span></div>
@@ -206,7 +274,7 @@
         <div class="meta">¥14,300・高單價限量套裝，建議留意抽選／預約</div>
       </div>
     </div>
-    <div class="item" data-franchise="yg" data-type="order" data-date="2026-08-22">
+    <div class="item" data-franchise="yg" data-type="order" data-date="2026-08-22" data-kw="遊戯王ラッシュデュエル 君臨のヘッドライナー">
       <div class="date-col"><div class="md">08/22</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 Rush Duel</span><span class="badge order">預訂</span></div>
@@ -214,7 +282,7 @@
         <div class="meta">Rush Duel 補充包・可預約</div>
       </div>
     </div>
-    <div class="item" data-franchise="yg" data-type="grab" data-date="2026-08-29">
+    <div class="item" data-franchise="yg" data-type="grab" data-date="2026-08-29" data-kw="遊戯王 LIMITED PACK WORLD CHAMPIONSHIP 2026">
       <div class="date-col"><div class="md">08/29</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 OCG</span><span class="badge grab">搶</span></div>
@@ -225,7 +293,7 @@
 
     <!-- 9月 -->
     <div class="month" data-month>2026 年 9 月</div>
-    <div class="item" data-franchise="yg" data-type="order" data-date="2026-09-05">
+    <div class="item" data-franchise="yg" data-type="order" data-date="2026-09-05" data-kw="遊戯王 デッキビルドパック グロリアス・ヴィクターズ">
       <div class="date-col"><div class="md">09/05</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 OCG</span><span class="badge order">預訂</span></div>
@@ -233,7 +301,7 @@
         <div class="meta">¥198・可預約</div>
       </div>
     </div>
-    <div class="item" data-franchise="db" data-type="grab" data-date="2026-09-12">
+    <div class="item" data-franchise="db" data-type="grab" data-date="2026-09-12" data-kw="ドラゴンボール フュージョンワールド BRIGHTNESS OF HOPE">
       <div class="date-col"><div class="md">09/12</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot db"></span><span class="fname">七龍珠 Fusion World</span><span class="badge grab">搶</span></div>
@@ -241,7 +309,7 @@
         <div class="meta">補充包同步調價 ¥220→¥240／包；人氣彈常需抽選</div>
       </div>
     </div>
-    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-09-16">
+    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-09-16" data-kw="ポケモンカード 30th CELEBRATION">
       <div class="date-col"><div class="md">09/16</div><div class="wd">週三</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot pk"></span><span class="fname">寶可夢・30週年</span><span class="badge grab">搶</span></div>
@@ -249,7 +317,7 @@
         <div class="meta">¥360/包・¥7,200/盒・30 種皮卡丘插畫、世界同時發售；抽選具體日待官方確認</div>
       </div>
     </div>
-    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-09-16">
+    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-09-16" data-kw="ポケモンカード 30th FUTURISTIC BOX">
       <div class="date-col"><div class="md">09/16</div><div class="wd">週三</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot pk"></span><span class="fname">寶可夢・30週年</span><span class="badge grab">搶</span></div>
@@ -257,7 +325,7 @@
         <div class="meta">¥6,200・寶可夢中心線上限定、抽選販售；日期待官方確認</div>
       </div>
     </div>
-    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-09-16">
+    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-09-16" data-kw="ポケモンカード プレミアムデッキセット エーフィ ブラッキー">
       <div class="date-col"><div class="md">09/16</div><div class="wd">週三</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot pk"></span><span class="fname">寶可夢・30週年</span><span class="badge grab">搶</span></div>
@@ -265,7 +333,7 @@
         <div class="meta">¥6,200・兩副 60 張構築牌組含全圖卡；限量，日期待官方確認</div>
       </div>
     </div>
-    <div class="item" data-franchise="yg" data-type="grab" data-date="2026-09-26">
+    <div class="item" data-franchise="yg" data-type="grab" data-date="2026-09-26" data-kw="遊戯王 ORIGINAL ARTWORK COLLECTION">
       <div class="date-col"><div class="md">09/26</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 OCG</span><span class="badge grab">搶</span></div>
@@ -276,7 +344,7 @@
 
     <!-- 10月 -->
     <div class="month" data-month>2026 年 10 月</div>
-    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-10-16">
+    <div class="item" data-franchise="pk" data-type="grab" data-date="2026-10-16" data-kw="ポケモンカード 30th CELEBRATION カードセット">
       <div class="date-col"><div class="md">10/16</div><div class="wd">週五</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot pk"></span><span class="fname">寶可夢・30週年</span><span class="badge grab">搶</span></div>
@@ -284,7 +352,7 @@
         <div class="meta">各 ¥1,200・附御三家閃促卡 3 種各 1 張；30週年限定</div>
       </div>
     </div>
-    <div class="item" data-franchise="yg" data-type="order" data-date="2026-10-31">
+    <div class="item" data-franchise="yg" data-type="order" data-date="2026-10-31" data-kw="遊戯王 IMMORTAL PHOENIX">
       <div class="date-col"><div class="md">10/31</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 OCG</span><span class="badge order">預訂</span></div>
@@ -292,7 +360,7 @@
         <div class="meta">¥198・可預約</div>
       </div>
     </div>
-    <div class="item" data-franchise="yg" data-type="grab" data-date="2026-10-31">
+    <div class="item" data-franchise="yg" data-type="grab" data-date="2026-10-31" data-kw="遊戯王 ORIGINAL ARTWORK DUEL SET">
       <div class="date-col"><div class="md">10/31</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 OCG</span><span class="badge grab">搶</span></div>
@@ -303,7 +371,7 @@
 
     <!-- 11月 -->
     <div class="month" data-month>2026 年 11 月</div>
-    <div class="item" data-franchise="yg" data-type="order" data-date="2026-11-21">
+    <div class="item" data-franchise="yg" data-type="order" data-date="2026-11-21" data-kw="遊戯王 REVOLUTION BOOSTER">
       <div class="date-col"><div class="md">11/21</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 OCG</span><span class="badge order">預訂</span></div>
@@ -314,7 +382,7 @@
 
     <!-- 12月 -->
     <div class="month" data-month>2026 年 12 月</div>
-    <div class="item" data-franchise="yg" data-type="order" data-date="2026-12-05">
+    <div class="item" data-franchise="yg" data-type="order" data-date="2026-12-05" data-kw="遊戯王 THE CHRONICLES DECK DX マギストス">
       <div class="date-col"><div class="md">12/05</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot yg"></span><span class="fname">遊戲王 OCG</span><span class="badge order">預訂</span></div>
@@ -322,7 +390,7 @@
         <div class="meta">¥1,980・可預約</div>
       </div>
     </div>
-    <div class="item" data-franchise="db" data-type="grab" data-date="2026-12-12">
+    <div class="item" data-franchise="db" data-type="grab" data-date="2026-12-12" data-kw="ドラゴンボール フュージョンワールド REACH THE GOD FB12">
       <div class="date-col"><div class="md">12/12</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot db"></span><span class="fname">七龍珠 Fusion World</span><span class="badge grab">搶</span></div>
@@ -330,7 +398,7 @@
         <div class="meta">¥240/包・以《七龍珠超》比魯斯為主軸；人氣彈常需抽選</div>
       </div>
     </div>
-    <div class="item" data-franchise="db" data-type="order" data-date="2026-12-12">
+    <div class="item" data-franchise="db" data-type="order" data-date="2026-12-12" data-kw="ドラゴンボール フュージョンワールド スタートデッキ 2026年12月">
       <div class="date-col"><div class="md">12/12</div><div class="wd">週六</div><div class="daycount"></div></div>
       <div class="body">
         <div class="tags"><span class="dot db"></span><span class="fname">七龍珠 Fusion World</span><span class="badge order">預訂</span></div>
@@ -351,7 +419,7 @@
     </ul>
   </div>
 
-  <div class="disc">※ 日期／價格可能變動，一切以官方公告為準。倒數依瀏覽器當前日期近似日本時間計算。</div>
+  <div class="disc">※ 日期／價格可能變動，一切以官方公告為準。搜尋連結為關鍵字自動導向，實際庫存與預訂開放時間以各通路為準。倒數依瀏覽器當前日期近似日本時間計算。</div>
 </div>
 
 <script>
@@ -360,8 +428,18 @@
   var MS=86400000;
   var items=Array.prototype.slice.call(document.querySelectorAll('.item'));
 
-  // fill day counts + past styling
+  // per-franchise official / 抽選 hub
+  var OFF={
+    pk:{u:'https://www.pokemoncenter-online.com/',t:'官方抽選'},
+    op:{u:'https://onepiece-cardgame.com/',t:'官方情報'},
+    db:{u:'https://dbs-cardgame.com/fw/',t:'官方情報'},
+    yg:{u:'https://www.yugioh-card.com/japan/',t:'官方情報'},
+    mag:{u:'https://7net.omni7.jp/',t:'7net預訂'}
+  };
+  function esc(s){return encodeURIComponent(s);}
+
   items.forEach(function(it){
+    // day counts + past styling
     var ds=it.getAttribute('data-date');
     var d=new Date(ds+'T00:00:00'); d.setHours(0,0,0,0);
     var diff=Math.round((d-now)/MS);
@@ -370,6 +448,21 @@
     else if(diff===0){ el.textContent='就是今天'; el.classList.add('today'); }
     else { el.textContent='已開賣'; el.classList.add('done'); it.classList.add('past'); }
     it.setAttribute('data-diff',diff);
+
+    // channel search links
+    var kw=it.getAttribute('data-kw')||'';
+    var fr=(it.getAttribute('data-franchise')||'').split(' ')[0];
+    var off=OFF[fr];
+    var box=document.createElement('div'); box.className='channels';
+    var html='<span class="lb">🛒 預訂／搶購：</span>';
+    if(off){ html+='<a class="off" target="_blank" href="'+off.u+'">'+off.t+'</a>'; }
+    html+='<a target="_blank" href="https://www.amazon.co.jp/s?k='+esc(kw)+'">Amazon</a>';
+    html+='<a target="_blank" href="https://search.rakuten.co.jp/search/mall/'+esc(kw)+'/">樂天</a>';
+    html+='<a target="_blank" href="https://shopping.yahoo.co.jp/search?p='+esc(kw)+'">Yahoo</a>';
+    html+='<a target="_blank" href="https://www.suruga-ya.jp/search?search_word='+esc(kw)+'">駿河屋</a>';
+    html+='<a target="_blank" href="https://buyee.jp/item/search/query/'+esc(kw)+'">Buyee代購</a>';
+    box.innerHTML=html;
+    it.querySelector('.body').appendChild(box);
   });
 
   // near-term action list (0..45 days)
@@ -404,7 +497,6 @@
       it.style.display=vis?'':'none';
       if(vis)shown++;
     });
-    // hide empty months
     document.querySelectorAll('[data-month]').forEach(function(m){
       var el=m.nextElementSibling, any=false;
       while(el&&!el.hasAttribute('data-month')){
